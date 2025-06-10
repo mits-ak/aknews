@@ -169,66 +169,74 @@
         }
 
         /* Popup content */
-        .popup-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 15px; /* Rounded corners */
-            width: 340px; /* Adjusted width to accommodate ads */
-            max-height: 80vh; /* Limit height to 80% of viewport */
-            overflow-y: auto; /* Scrollable if content overflows */
-            text-align: center;
-            position: relative;
-            border: 3px solid green; /* Green round border */
-            box-sizing: border-box;
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
         }
 
-        /* Close button */
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            position: relative;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+        }
+
         .close-btn {
             position: absolute;
             top: 10px;
             right: 10px;
-            font-size: 20px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
             cursor: pointer;
-            background: red; /* Red background */
-            color: white; /* White text for contrast */
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%; /* Round shape */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1001; /* Ensure button is above ads */
+            font-size: 16px;
         }
 
-        /* Popup message styling */
         .popup-message {
-            color: blue; /* Blue text */
-            font-size: 24px; /* Large text */
-            font-weight: bold; /* Heading style */
-            margin-bottom: 15px;
-            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin-bottom: 10px;
         }
 
-        /* Paragraph styling */
-        p {
-            margin: 0 0 15px 0;
-            font-size: 14px;
+        .popup-btn {
+            display: block; /* Stacks buttons vertically */
+            margin: 10px auto; /* Centers buttons with vertical spacing */
+            padding: 10px 20px;
+            background: #28a745; /* Green background */
+            color: #DCE216; /* Blue text */
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            width: fit-content; /* Ensures button width fits content */
         }
 
-        /* Ad container */
-        .ad-container {
-            margin: 10px 0;
-            display: block;
-            max-width: 100%; /* Prevent ads from overflowing */
+        .popup-btn:hover {
+            background: #218838; /* Darker green on hover */
         }
 
-        /* Ensure iframes are contained */
-        iframe {
-            max-width: 100%;
-            border: none;
-            display: block;
-		}
+        .button-container-1 {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 50%;
+            height: 50%;
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -236,47 +244,15 @@
 	<div id="popup" class="popup">
         <div class="popup-content">
             <button class="close-btn" onclick="closePopup()">×</button>
-            <div class="popup-message" id="popupMessage">This Popup message closed in <span id="countdown">5</span> seconds</div>
-            <p style="color: #FD3E12; font-size:13px;">𝐒𝐨𝐫𝐫𝐲 𝐟𝐨𝐫 𝐭𝐡𝐞𝐬𝐞 𝐏𝐨𝐩𝐮𝐩 𝐀𝐝𝐬 🥲 . 𝐓𝐡𝐢𝐬 𝐦𝐚𝐲 𝐛𝐞 𝐍𝐨𝐭 𝐀𝐟𝐟𝐞𝐜𝐭𝐬 𝐲𝐨𝐮 𝐛𝐮𝐭 𝐢𝐭 𝐯𝐞𝐫𝐲 𝐯𝐞𝐫𝐲 𝐢𝐦𝐩𝐨𝐫𝐭𝐚𝐧𝐭 𝐅𝐨𝐫 𝐁𝐎𝐓𝐒 𝐫𝐮𝐧𝐧𝐢𝐧𝐠 𝐧𝐨𝐧 𝐬𝐭𝐨𝐩 🥺 𝐀𝐧𝐝 𝐒𝐭𝐢𝐥𝐥 𝐡𝐚𝐯𝐞 𝐏𝐫𝐨𝐛𝐥𝐞𝐦 𝐲𝐨𝐮 𝐜𝐚𝐧 𝐂𝐥𝐨𝐬𝐞 𝐭𝐡𝐢𝐬 𝐮𝐬𝐢𝐧𝐠 𝐚𝐛𝐨𝐯𝐞 𝐂𝐥𝐨𝐬𝐞 𝐛𝐮𝐭𝐭𝐨𝐧</p>
-            <!-- Ad 1 -->
-            <div class="ad-container">
-		    <script type="text/javascript">
-	atOptions = {
-		'key' : '546d95d2f0997e0d1d3083947c642f91',
-		'format' : 'iframe',
-		'height' : 600,
-		'width' : 160,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/546d95d2f0997e0d1d3083947c642f91/invoke.js"></script>
-                </div>
-            <!-- Ad 2 -->
-            <div class="ad-container">
-                <script type="text/javascript">
-	atOptions = {
-		'key' : 'd16a06e703535292832fd046ddebcb43',
-		'format' : 'iframe',
-		'height' : 50,
-		'width' : 320,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/d16a06e703535292832fd046ddebcb43/invoke.js"></script>
-	    </div>
-            <!-- Ad 3 -->
-            <div class="ad-container">
-		    <script type="text/javascript">
-	atOptions = {
-		'key' : 'a9647c7fca9c7a0468b362a1ae1dfd7e',
-		'format' : 'iframe',
-		'height' : 250,
-		'width' : 300,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/a9647c7fca9c7a0468b362a1ae1dfd7e/invoke.js"></script>
-                </div>
+            <div class="popup-message" id="popupMessage">This Popup message closed in <span id="countdown">10</span> seconds</div>
+            <p style="color: #449F75; font-size:24px;">JEE Material & Instant Doubt Solving by CareerWill JEE 🔴</p>
+              <p style="color: #141C3A; font-size:15px;">𝗝𝗼𝗶𝗻 𝗙𝗮𝘀𝘁 𝗟𝗶𝗻𝗸 𝗘𝘅𝗽𝗶𝗿𝗲𝘀 𝗶𝗻 𝗙𝗲𝘄 𝗠𝗶𝗻𝘂𝘁𝗲𝘀👇</p>
+            <img src="https://i.ibb.co/r25Y27mh/x.jpg" alt="Popup Image">
+            <div class="button-container-1">
+                <a href="https://t.me/+BBZXXuR2XCNkMzFl" class="popup-btn">𝗝𝗢𝗜𝗡 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 🌟</a>
+                <a href="https://t.me/+BBZXXuR2XCNkMzFl" class="popup-btn">𝗝𝗢𝗜𝗡 𝗖𝗛𝗔𝗡𝗡𝗘𝗟 🌟</a>
+       <p style="color: #490214; font-size:20px;">𝐓𝐡𝐢𝐬 𝐢𝐬 𝐚 𝐎𝐅𝐅𝐈𝐂𝐈𝐀𝐋 𝐂𝐇𝐀𝐍𝐍𝐄𝐋 🔥</p>
+            </div>
         </div>
     </div>
 
@@ -286,7 +262,7 @@
         // Function to show popup and start countdown
         function showPopup() {
             document.getElementById('popup').style.display = 'flex';
-            let seconds = 5;
+            let seconds = 10;
             const countdownElement = document.getElementById('countdown');
 
             // Update countdown every second
@@ -300,7 +276,7 @@
             }, 1000);
 
             // Ensure popup closes after 5 seconds
-            setTimeout(closePopup, 5000);
+            setTimeout(closePopup, 10000);
         }
 
         // Function to close popup
